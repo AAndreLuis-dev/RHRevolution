@@ -41,7 +41,7 @@ public class FuncionarioServices {
         FuncionarioDB funcionarioDB = FuncionarioDB.getInstance();
         for (Funcionario funcionario : funcionarioDB.getFuncionarios()){
             System.out.println("=====================================");
-            System.out.println(funcionario.toString());
+            System.out.println(funcionario.toString(1));
             System.out.println("=====================================");
         }
     }
@@ -129,13 +129,13 @@ public class FuncionarioServices {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Digite o CPF do usuário que deseja remover.");
+        System.out.println("Digite o CPF do usuário que deseja procurar.");
         String cpfProcura = input.next();
 
         for (Funcionario funcionario : funcionarioDB.getFuncionarios()){
             if (funcionario.getCPF().equals(cpfProcura)){
                 System.out.println("============================");
-                System.out.println(funcionario.toString(1));
+                System.out.println(funcionario.toString());
                 System.out.println("============================");
             }
         }
