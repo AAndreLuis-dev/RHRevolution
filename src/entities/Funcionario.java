@@ -10,7 +10,7 @@ public class Funcionario {
 
     static int proximoId;
 
-    Funcionario(String nome, String email, double salario, String cpf) {
+    public Funcionario(String nome, String email, double salario, String cpf) {
         this.id = proximoId;
         proximoId++;
         this.nome = nome;
@@ -20,11 +20,27 @@ public class Funcionario {
 
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {return this.email;}
+
+    public void setEmail(String email) {this.email = email;}
 
     public String getCPF() {
         return this.cpf;
     }
 
+    public void setCPF(String cpf) { this.cpf = cpf; }
+
+    public double getSalario() {return this.salario;}
+
+    public void setSalario(double salario) {this.salario = salario;}
 
     public String toString(int numero) {
         return String.format("\nNome: %s"
