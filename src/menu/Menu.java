@@ -9,46 +9,51 @@ import java.util.Scanner;
 
 public class Menu {
 
+    // Método estático para exibir o menu geral
     public static void menuGeral() {
 
-        int choice = 0;
-        Scanner input = new Scanner(System.in);
+        int choice = 0; // Variável para armazenar a escolha do usuário
+        Scanner input = new Scanner(System.in); // Cria um scanner para ler a entrada do usuário
 
+        // Exibe o cabeçalho do menu
         System.out.println("=====================================");
         System.out.println("            RH REVOLUTION             ");
         System.out.println("=====================================");
+        // Exibe as opções do menu
         System.out.println("[1] - ARÉA DE FUNCIONÁRIOS");
         System.out.println("[2] - ARÉA DE GERENTE");
         System.out.println("[3] - FOLHA DE PAGAMENTO");
         System.out.println("[4] - SAIR");
         System.out.print("Escolha uma opção: ");
 
-        choice = input.nextInt();
+        choice = input.nextInt(); // Lê a escolha do usuário
 
+        // Executa a ação correspondente à escolha do usuário
         switch (choice) {
             case 1:
-                menuFuncionario();
+                menuFuncionario(); // Chama o menu de funcionários
                 break;
             case 2:
-                menuGerente();
+                menuGerente(); // Chama o menu de gerentes
                 break;
             case 3:
                 menuFolha();
-                break;
-
             default:
                 System.out.println("Opção inválida");
-                menuGeral();
+                menuGeral(); // Retorna ao menu geral
         }
     }
 
+    // Método estático para exibir o menu de funcionários
     public static void menuFuncionario() {
-        int choice = 0;
-        Scanner input = new Scanner(System.in);
+        int choice = 0; // Variável para armazenar a escolha do usuário
+        Scanner input = new Scanner(System.in); // Cria um scanner para ler a entrada do usuário
 
+        // Exibe o cabeçalho do menu
         System.out.println("=====================================");
         System.out.println("            RH REVOLUTION             ");
         System.out.println("=====================================");
+        // Exibe as opções do menu
         System.out.println("[1] - CADASTRO DE FUNCIONÁRIOS");
         System.out.println("[2] - LISTAR FUNCIONARIOS CADASTRADOS");
         System.out.println("[3] - MODIFICAR FUNCIONÁRIOS");
@@ -56,40 +61,44 @@ public class Menu {
         System.out.println("[5] - BUSCAR FUNCIONÁRIOS");
         System.out.println("[6] - SAIR");
         System.out.print("Escolha uma opção: ");
-        choice = input.nextInt();
+        choice = input.nextInt(); // Lê a escolha do usuário
 
+        // Executa a ação correspondente à escolha do usuário
         switch (choice) {
             case 1:
-                FuncionarioServices.cadastroUsuario();
+                FuncionarioServices.cadastroUsuario(); // Chama o serviço de cadastro de funcionários
                 break;
             case 2:
-                FuncionarioServices.mostrarUsuarios();
+                FuncionarioServices.mostrarUsuarios(); // Chama o serviço de listagem de funcionários
                 break;
             case 3:
-                FuncionarioServices.alterarUsuario();
+                FuncionarioServices.alterarUsuario(); // Chama o serviço de modificação de funcionários
                 break;
             case 4:
-                FuncionarioServices.removerUsuario();
+                FuncionarioServices.removerUsuario(); // Chama o serviço de remoção de funcionários
                 break;
             case 5:
-                FuncionarioServices.buscarUsuario();
+                FuncionarioServices.buscarUsuario(); // Chama o serviço de busca de funcionários
                 break;
             case 6:
-                menuGeral();
+                menuGeral();  // Volta ao menu geral
             default:
                 System.out.println("Opcao invalida");
         }
 
-        menuFuncionario();
+        menuFuncionario(); // Retorna ao menu de funcionários
     }
 
+    // Método estático para exibir o menu de gerentes
     public static void menuGerente() {
-        int choice = 0;
-        Scanner input = new Scanner(System.in);
+        int choice = 0; // Variável para armazenar a escolha do usuário
+        Scanner input = new Scanner(System.in); // Cria um scanner para ler a entrada do usuário
 
+        // Exibe o cabeçalho do menu
         System.out.println("=====================================");
         System.out.println("            RH REVOLUTION             ");
         System.out.println("=====================================");
+        // Exibe as opções do menu
         System.out.println("[1] - CADASTRO DE GERENTE");
         System.out.println("[2] - LISTAR TODOS OS USUÁRIOS CADASTRADOS");
         System.out.println("[3] - MODIFICAR GERENTES");
@@ -98,31 +107,32 @@ public class Menu {
         System.out.println("[6] - VOLTAR");
 
         System.out.print("Escolha uma opção: ");
-        choice = input.nextInt();
+        choice = input.nextInt(); // Lê a escolha do usuário
 
+        // Executa a ação correspondente à escolha do usuário
         switch (choice) {
             case 1:
-                GerenteServices.cadastroGerente();
+                GerenteServices.cadastroGerente(); // Chama o serviço de cadastro de gerentes
                 break;
             case 2:
-                GerenteServices.mostrarGerentes();
+                GerenteServices.mostrarGerentes(); // Chama o serviço de listagem de gerentes
                 break;
             case 3:
-                GerenteServices.alterarGerente();
+                GerenteServices.alterarGerente(); // Chama o serviço de modificação de gerentes
                 break;
             case 4:
-                GerenteServices.removerGerente();
+                GerenteServices.removerGerente(); // Chama o serviço de remoção de gerentes
                 break;
             case 5:
-                GerenteServices.buscarGerente();
+                GerenteServices.buscarGerente(); // Chama o serviço de busca de gerentes
                 break;
             case 6:
-                menuGeral();
+                menuGeral(); // Volta ao menu geral
             default:
-                System.out.println("Opcao invalida");
+                System.out.println("Opcao invalida"); // Mensagem para escolha inválida
         }
 
-        menuGerente();
+        menuGerente(); // Retorna ao menu de gerentes
     }
 
     public static void menuSetor() {
@@ -144,18 +154,21 @@ public class Menu {
 
 
     public static void menuFolha() {
-        int choice = 0;
-        Scanner input = new Scanner(System.in);
+        int choice = 0;  // Variável para armazenar a escolha do usuário
+        Scanner input = new Scanner(System.in); // Cria um scanner para ler a entrada do usuário
 
+        // Exibe o cabeçalho do menu
         System.out.println("=====================================");
         System.out.println("            RH REVOLUTION             ");
         System.out.println("=====================================");
+        // Exibe as opções do menu
         System.out.println("[1] - FOLHA DE FUNCIONARIOS");
         System.out.println("[2] - FOLHA DE GERENTE");
         System.out.println("[3] - FOLHA DE SETOR");
         System.out.println("[6] - SAIR");
         System.out.print("Escolha uma opção: ");
-        choice = input.nextInt();
+        choice = input.nextInt(); // Lê a escolha do usuário
+
 
         switch (choice) {
             case 1:
@@ -169,7 +182,6 @@ public class Menu {
                 break;
             case 6:
                 menuGeral();
-                break;
             default:
                 System.out.println("Opcao invalida");
         }
