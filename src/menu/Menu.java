@@ -38,6 +38,9 @@ public class Menu {
                 break;
             case 3:
                 menuFolha();
+            case 4:
+                System.out.println("Programa finalizado");
+                break;
             default:
                 System.out.println("Opção inválida");
                 menuGeral(); // Retorna ao menu geral
@@ -53,6 +56,7 @@ public class Menu {
         System.out.println("=====================================");
         System.out.println("            RH REVOLUTION             ");
         System.out.println("=====================================");
+
         // Exibe as opções do menu
         System.out.println("[1] - CADASTRO DE FUNCIONÁRIOS");
         System.out.println("[2] - LISTAR FUNCIONARIOS CADASTRADOS");
@@ -98,6 +102,7 @@ public class Menu {
         System.out.println("=====================================");
         System.out.println("            RH REVOLUTION             ");
         System.out.println("=====================================");
+
         // Exibe as opções do menu
         System.out.println("[1] - CADASTRO DE GERENTE");
         System.out.println("[2] - LISTAR TODOS OS USUÁRIOS CADASTRADOS");
@@ -135,16 +140,16 @@ public class Menu {
         menuGerente(); // Retorna ao menu de gerentes
     }
 
-    public static void menuSetor() {
+    public static void menuDepartamento() {
         int choice = 0;
         Scanner input = new Scanner(System.in);
 
         System.out.println("=====================================");
         System.out.println("            RH REVOLUTION             ");
         System.out.println("=====================================");
-        System.out.println("[1] - LISTAR SETORES");
-        System.out.println("[2] - ADICIONAR FUNCIONARIOS NO SETOR");
-        System.out.println("[2] - REMOVER SETORES");
+        System.out.println("[1] - LISTAR DEPARTAMENTO");
+        System.out.println("[2] - ADICIONAR FUNCIONARIOS NO DEPARTAMENTO");
+        System.out.println("[2] - REMOVER DEPARTAMENTO");
         System.out.println("[4] - SAIR");
         System.out.print("Escolha uma opção: ");
         choice = input.nextInt();
@@ -164,7 +169,7 @@ public class Menu {
         // Exibe as opções do menu
         System.out.println("[1] - FOLHA DE FUNCIONARIOS");
         System.out.println("[2] - FOLHA DE GERENTE");
-        System.out.println("[3] - FOLHA DE SETOR");
+        System.out.println("[3] - FOLHA DE DEPARTAMENTO");
         System.out.println("[6] - SAIR");
         System.out.print("Escolha uma opção: ");
         choice = input.nextInt(); // Lê a escolha do usuário

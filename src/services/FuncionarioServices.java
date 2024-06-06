@@ -34,10 +34,10 @@ public class FuncionarioServices {
         String email = input.nextLine();
 
         System.out.println("Digite o salario do funcionario");
-        double salario = input.nextDouble(); // Consome a linha pendente
+        double salario = Double.parseDouble(input.nextLine()); // Consome a linha pendente
 
         System.out.println("Digite o CPF do funcionario");
-        String cpf = input.nextLine();
+        String cpf = input.next();
 
         System.out.println("Digite o tempo de trabalho em meses");
         int mesesTrabalho = input.nextInt();

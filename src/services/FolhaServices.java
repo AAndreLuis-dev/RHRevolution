@@ -36,7 +36,7 @@ public class FolhaServices {
             System.out.println("============================");
         }
 
-        System.out.printf("Salario Total dos funcionarios: %.2f \n" , salarioTotal);
+        System.out.printf("Salario Total dos gerentes: %.2f \n" , salarioTotal);
     }
 
 }
