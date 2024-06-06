@@ -1,6 +1,7 @@
 package menu;
 
 import entities.Funcionario;
+import services.FolhaServices;
 import services.FuncionarioServices;
 import services.GerenteServices;
 
@@ -31,6 +32,10 @@ public class Menu {
             case 2:
                 menuGerente();
                 break;
+            case 3:
+                menuFolha();
+                break;
+
             default:
                 System.out.println("Opção inválida");
                 menuGeral();
@@ -128,12 +133,24 @@ public class Menu {
         System.out.println("            RH REVOLUTION             ");
         System.out.println("=====================================");
         System.out.println("[1] - FOLHA DE FUNCIONARIOS");
-        System.out.println("[3] - FOLHA DE GERENTE");
+        System.out.println("[2] - FOLHA DE GERENTE");
         System.out.println("[3] - FOLHA DE SETOR");
         System.out.println("[4] - SAIR");
         System.out.print("Escolha uma opção: ");
         choice = input.nextInt();
 
+        switch (choice) {
+            case 1:
+                FolhaServices.mostrarFolhaFuncionario();
+                break;
+            case 2:
+                FolhaServices.mostrarFolhaGeremte();
+                break;
+            default:
+                System.out.println("Opcao invalida");
+        }
+
+        menuFolha();
 
     }
 }
