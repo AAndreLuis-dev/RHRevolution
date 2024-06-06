@@ -21,7 +21,7 @@ public class FolhaServices {
             System.out.println("============================");
         }
 
-        System.out.printf("Salario Total dos funcionarios: %.2f " , salarioTotal);
+        System.out.printf("Salario Total dos funcionarios: %.2f \n" , salarioTotal);
     }
 
     public static void mostrarFolhaGeremte(){

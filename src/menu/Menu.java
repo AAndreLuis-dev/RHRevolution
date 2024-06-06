@@ -125,6 +125,24 @@ public class Menu {
         menuGerente();
     }
 
+    public static void menuSetor() {
+        int choice = 0;
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("=====================================");
+        System.out.println("            RH REVOLUTION             ");
+        System.out.println("=====================================");
+        System.out.println("[1] - LISTAR SETORES");
+        System.out.println("[2] - ADICIONAR FUNCIONARIOS NO SETOR");
+        System.out.println("[2] - REMOVER SETORES");
+        System.out.println("[4] - SAIR");
+        System.out.print("Escolha uma opção: ");
+        choice = input.nextInt();
+
+
+    }
+
+
     public static void menuFolha() {
         int choice = 0;
         Scanner input = new Scanner(System.in);
@@ -135,7 +153,7 @@ public class Menu {
         System.out.println("[1] - FOLHA DE FUNCIONARIOS");
         System.out.println("[2] - FOLHA DE GERENTE");
         System.out.println("[3] - FOLHA DE SETOR");
-        System.out.println("[4] - SAIR");
+        System.out.println("[6] - SAIR");
         System.out.print("Escolha uma opção: ");
         choice = input.nextInt();
 
@@ -145,6 +163,12 @@ public class Menu {
                 break;
             case 2:
                 FolhaServices.mostrarFolhaGeremte();
+                break;
+            case 3:
+                System.out.println("Teste");
+                break;
+            case 6:
+                menuGeral();
                 break;
             default:
                 System.out.println("Opcao invalida");
