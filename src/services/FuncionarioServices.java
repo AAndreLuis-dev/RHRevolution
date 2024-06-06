@@ -99,6 +99,11 @@ public class FuncionarioServices {
                 if (!cpf.isEmpty())
                     funcionario.setCPF(cpf);
 
+                System.out.printf("\nDigite o tempo de trabalho caso queira alterar (atual: %d) ", funcionario.getMesesTrabalho());
+                int mesesTrabalho = Integer.parseInt(input.nextLine());
+                if (mesesTrabalho > 0)
+                    funcionario.setMesesTrabalho(mesesTrabalho);
+
             }
         }
     }
