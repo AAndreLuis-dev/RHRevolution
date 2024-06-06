@@ -22,22 +22,22 @@ public class GerenteServices {
         System.out.println("===========================");
 
         System.out.println("Digite o nome do gerente");
-        String nome = input.next();
+        String nome = input.nextLine();
 
         System.out.println("Digite o email do gerente");
-        String email = input.next();
+        String email = input.nextLine();
 
         System.out.println("Digite o salario do gerente");
         double salario = input.nextDouble();
 
         System.out.println("Digite o CPF do gerente");
-        String cpf = input.next();
+        String cpf = input.nextLine();
 
         System.out.println("Digite o bonus do gerente");
         double bonus = input.nextDouble();
 
         System.out.println("Digite o departamento do gerente");
-        String departamento = input.next();
+        String departamento = input.nextLine();
 
         System.out.println("Digite os meses de experiência gerencial do gerente");
         int mesesExperienciaGerencial = input.nextInt();

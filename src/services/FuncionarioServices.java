@@ -22,19 +22,22 @@ public class FuncionarioServices {
         System.out.println("===========================");
 
         System.out.println("Digite o nome do funcionario");
-        String nome = input.next();
+        String nome = input.nextLine();
 
         System.out.println("Digite o email do funcionario");
-        String email = input.next();
+        String email = input.nextLine();
 
         System.out.println("Digite o salario do funcionario");
         double salario = input.nextDouble();
 
         System.out.println("Digite o CPF do funcionario");
-        String cpf = input.next();
+        String cpf = input.nextLine();
+
+        System.out.println("Digite o tempo de trabalho em meses");
+        int mesesTrabalho = input.nextInt();
 
 
-        funcionarioDB.add(new Funcionario(nome, email, salario, cpf));
+        funcionarioDB.add(new Funcionario(nome, email, salario, cpf, mesesTrabalho));
     }
 
     public static void mostrarUsuarios() {

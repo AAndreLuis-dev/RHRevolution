@@ -45,10 +45,10 @@ public class Menu {
         System.out.println("            RH REVOLUTION             ");
         System.out.println("=====================================");
         System.out.println("[1] - CADASTRO DE FUNCIONÁRIOS");
-        System.out.println("[2] - LISTAR GERENTES CADASTRADOS");
-        System.out.println("[3] - MODIFICAR USUARIOS");
-        System.out.println("[4] - REMOVER USUARIOS");
-        System.out.println("[5] - BUSCAR USUARIOS");
+        System.out.println("[2] - LISTAR FUNCIONARIOS CADASTRADOS");
+        System.out.println("[3] - MODIFICAR FUNCIONÁRIOS");
+        System.out.println("[4] - REMOVER FUNCIONÁRIOS");
+        System.out.println("[5] - BUSCAR FUNCIONÁRIOS");
         System.out.println("[6] - SAIR");
         System.out.print("Escolha uma opção: ");
         choice = input.nextInt();
@@ -120,4 +120,21 @@ public class Menu {
         menuGerente();
     }
 
+    public static void menuFolha() {
+        int choice = 0;
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("=====================================");
+        System.out.println("            RH REVOLUTION             ");
+        System.out.println("=====================================");
+        System.out.println("[1] - FOLHA DE FUNCIONARIOS");
+        System.out.println("[3] - FOLHA DE GERENTE");
+        System.out.println("[3] - FOLHA DE SETOR");
+        System.out.println("[4] - SAIR");
+        System.out.print("Escolha uma opção: ");
+        choice = input.nextInt();
+
+
+    }
 }
+

@@ -7,6 +7,7 @@ public class Funcionario {
     protected String email;
     protected double salario;
     protected String cpf;
+    protected int mesesTrabalho;
 
     static int proximoId;
 
@@ -19,6 +20,17 @@ public class Funcionario {
         this.cpf = cpf;
 
     }
+
+    public Funcionario(String nome, String email, double salario, String cpf, int mesesTrabalho) {
+        this.id = proximoId;
+        proximoId++;
+        this.nome = nome;
+        this.email = email;
+        this.salario = salario;
+        this.cpf = cpf;
+        this.mesesTrabalho = mesesTrabalho;
+    }
+
 
     public String getNome() {
         return nome;
@@ -42,6 +54,10 @@ public class Funcionario {
 
     public void setSalario(double salario) {this.salario = salario;}
 
+    public int getMesesTrabalho() {return this.mesesTrabalho;}
+
+    public void setMesesTrabalho(int mesesTrabalho) {this.mesesTrabalho = mesesTrabalho;}
+
     public String toString(int numero) {
         return String.format("\nNome: %s"
                 + "\nemail: %s"
@@ -53,7 +69,8 @@ public class Funcionario {
                 + "\nNome: %s"
                 + "\nemail: %s"
                 + "\nsalario: %.2f"
-                + "\nCPF: %s", this.id, this.nome, this.email, this.salario, this.cpf);
+                + "\nCPF: %s"
+                + "\nMeses Trabalhado: %d", this.id, this.nome, this.email, this.salario, this.cpf, this.mesesTrabalho);
     }
 
 }
