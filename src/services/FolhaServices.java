@@ -12,11 +12,12 @@ import java.util.Scanner;
 
 public class FolhaServices {
 
-
+    // Método para mostrar a folha de pagamento de todos os funcionários
     public static void mostrarFolhaFuncionario(){
-        FuncionarioDB funcionarioDB = FuncionarioDB.getInstance();
+        FuncionarioDB funcionarioDB = FuncionarioDB.getInstance(); // Obtém a instância do banco de dados de funcionários
         double salarioTotal = 0;
 
+        // Itera sobre todos os funcionários, exibe suas informações e soma seus salários
         for (Funcionario funcionario : funcionarioDB.getFuncionarios()) {
             System.out.println("============================");
             System.out.println(funcionario.toString());
@@ -24,14 +25,16 @@ public class FolhaServices {
             System.out.println("============================");
         }
 
+        // Exibe o salário total dos funcionários
         System.out.printf("Salario Total dos funcionarios: %.2f \n" , salarioTotal);
     }
 
+    // Método para mostrar a folha de pagamento de todos os gerentes
     public static void mostrarFolhaGeremte(){
         GerenteDB gerenteDB = GerenteDB.getInstance();
         double salarioTotal = 0;
 
-
+        // Itera sobre todos os gerentes, exibe suas informações e soma seus salários
         for (Gerente gerente : gerenteDB.getGerentes()) {
             System.out.println("============================");
             System.out.println(gerente.toString());
@@ -39,63 +42,77 @@ public class FolhaServices {
             System.out.println("============================");
         }
 
+        // Exibe o salário total dos gerentes
         System.out.printf("Salario Total dos gerentes: %.2f \n" , salarioTotal);
     }
 
+    // Método para mostrar a folha de pagamento de todos os departamentos
     public static void mostrarFolhaDepartamento(){
         DepartamentoDB departamentoDB = DepartamentoDB.getInstance();
         FuncionarioDB funcionarioDB = FuncionarioDB.getInstance();
         GerenteDB gerenteDB = GerenteDB.getInstance();
 
+        // Itera sobre todos os departamentos
         for (Departamento departamento: departamentoDB.getDepartamento()){
             double salarioTotal = 0;
             System.out.println("============================");
             System.out.println("Nome do setor: " + departamento.getNomeDepartamento());
             System.out.println("Gerente do setor: " + departamento.getGerenteDepartamento());
-            // Adiciona o salário do gerente ao total
+
+            // Adiciona o salário do gerente ao total, se o gerente estiver associado ao departamento
             for (Gerente gerente : gerenteDB.getGerentes()) {
                 if (gerente.getNome().equals(departamento.getGerenteDepartamento())) {
                     salarioTotal += gerente.getSalario();
                 }
             }
+
+            // Exibe os funcionários do departamento e soma seus salários ao total
             System.out.println("Funcionarios do setor: ");
             for (Funcionario funcionario : departamento.getFuncionarios()) {
                 System.out.println(funcionario.getNome());
                 salarioTotal += funcionario.getSalario();
             }
+
+            // Exibe o total gasto no departamento
             System.out.println("Total gasto no setor: " + salarioTotal);
             System.out.println("============================");
         }
     }
 
+    // Método para definir um bônus percentual para todos os funcionários de um departamento
     public static void setBonusDepartamento() {
-        DepartamentoDB departamentoDB = DepartamentoDB.getInstance();
-        GerenteDB gerenteDB = GerenteDB.getInstance();
+        DepartamentoDB departamentoDB = DepartamentoDB.getInstance(); // Obtém a instância do banco de dados de departamentos
+        GerenteDB gerenteDB = GerenteDB.getInstance();// Obtém a instância do banco de dados de gerentes
         double salarioTotal = 0;
 
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);// Cria um scanner para ler a entrada do usuário
 
+        // Exibe o cabeçalho para a aplicação do bônus
         System.out.println("===============================");
         System.out.println("    BONUS PARA DEPARTAMENTO    ");
         System.out.println("===============================");
 
+        // Solicita o nome do departamento e o percentual de bônus ao usuário
         System.out.println("Digite o nome do departamento: ");
         String nomeDepartamento = input.nextLine();
 
         System.out.println("Digite o bonus percentual do aumento: ");
         double bonusPercentual = input.nextDouble();
 
+        // Itera sobre os departamentos e aplica o bônus se o departamento corresponder ao nome fornecido
         for (Departamento departamento : departamentoDB.getDepartamento()) {
             if (departamento.getNomeDepartamento().equalsIgnoreCase(nomeDepartamento)) {
                 System.out.println("============================");
                 System.out.println("Nome do setor: " + departamento.getNomeDepartamento());
                 System.out.println("Gerente do setor: " + departamento.getGerenteDepartamento());
-                // Adiciona o salário do gerente ao total
+                // Adiciona o salário do gerente ao total, se o gerente estiver associado ao departamento
                 for (Gerente gerente : gerenteDB.getGerentes()) {
                     if (gerente.getNome().equals(departamento.getGerenteDepartamento())) {
                         salarioTotal += gerente.getSalario();
                     }
                 }
+
+                // Exibe os funcionários do departamento, aplica o bônus e soma os salários com bônus ao total
                 System.out.println("Funcionarios do setor: ");
                 for (Funcionario funcionario : departamento.getFuncionarios()) {
                     double salarioAntes = funcionario.getSalario();
@@ -103,6 +120,8 @@ public class FolhaServices {
                     System.out.println(funcionario.getNome() + " - Salario antes: " + salarioAntes + ", Salario pos bonus: " + salarioComBonus);
                     salarioTotal += salarioComBonus;
                 }
+
+                // Exibe o total gasto no departamento após a aplicação do bônus
                 System.out.println("Total gasto no setor pos bonus: " + salarioTotal);
                 System.out.println("============================");
             }
