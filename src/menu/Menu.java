@@ -197,7 +197,8 @@ public class Menu {
         System.out.println("[1] - FOLHA DE FUNCIONARIOS");
         System.out.println("[2] - FOLHA DE GERENTE");
         System.out.println("[3] - FOLHA DE DEPARTAMENTO");
-        System.out.println("[6] - SAIR");
+        System.out.println("[4] - DAR BONUS");
+        System.out.println("[5] - SAIR");
         System.out.print("Escolha uma opção: ");
         choice = input.nextInt(); // Lê a escolha do usuário
 
@@ -210,9 +211,12 @@ public class Menu {
                 FolhaServices.mostrarFolhaGeremte();
                 break;
             case 3:
-                System.out.println("Teste");
+                FolhaServices.mostrarFolhaDepartamento();
                 break;
-            case 6:
+            case 4:
+                FolhaServices.setBonusDepartamento();
+                break;
+            case 5:
                 menuGeral();
             default:
                 System.out.println("Opcao invalida");

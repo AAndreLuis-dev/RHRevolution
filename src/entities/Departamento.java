@@ -28,19 +28,25 @@ public class Departamento {
         }
     }
 
+    public ArrayList<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
+
     public String getNomeDepartamento() { return this.nomeDepartamento;}
 
     public void addFuncionario(Funcionario funcionario) {
         this.funcionarios.add(funcionario);
     }
 
-    public int getNumeroPessoasDepartamento() {
-        int numeroPessoasDepartamento = 0;
-        for (Funcionario funcionario : funcionarios) {
-            numeroPessoasDepartamento++;
-        }
-        return numeroPessoasDepartamento;
-    }
+    public String getGerenteDepartamento() { return this.gerenteDepartamento;}
+
+//    public int getNumeroPessoasDepartamento() {
+//        int numeroPessoasDepartamento = 0;
+//        for (Funcionario funcionario : funcionarios) {
+//            numeroPessoasDepartamento++;
+//        }
+//        return numeroPessoasDepartamento;
+//    }
 
     public String toString(){
        return String.format("Departamento: %s\n" +
