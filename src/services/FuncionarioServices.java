@@ -3,6 +3,8 @@ package services;
 import collections.FuncionarioDB;
 import entities.Funcionario;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class FuncionarioServices {
@@ -42,8 +44,13 @@ public class FuncionarioServices {
         System.out.println("Digite o tempo de trabalho em meses");
         int mesesTrabalho = input.nextInt();
 
+        System.out.println("Digite a data de contratação (dd/mm/yy)");
+        String dataContratado = input.nextLine();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yy");
+        LocalDate dataContratadoLocalDate = LocalDate.parse(dataContratado, formatter);
+
         // Adiciona o novo funcionário ao banco de dados
-        funcionarioDB.add(new Funcionario(nome, email, salario, cpf, mesesTrabalho));
+        funcionarioDB.add(new Funcionario(nome, email, salario, cpf, dataContratadoLocalDate));
     }
 
     // Método para mostrar todos os funcionários cadastrados
@@ -102,7 +109,7 @@ public class FuncionarioServices {
                 System.out.printf("\nDigite o tempo de trabalho caso queira alterar (atual: %d) ", funcionario.getMesesTrabalho());
                 int mesesTrabalho = Integer.parseInt(input.nextLine());
                 if (mesesTrabalho > 0)
-                    funcionario.setMesesTrabalho(mesesTrabalho);
+                    funcionario.setDataContratado(mesesTrabalho);
 
             }
         }

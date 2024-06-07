@@ -12,4 +12,6 @@ public class Departamento {
 
     public Departamento(String nomeDepartamento) {}
 
+    public String getNomeDepartamento() { return this.nomeDepartamento;}
+
 }

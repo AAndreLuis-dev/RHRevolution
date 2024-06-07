@@ -1,5 +1,9 @@
 package entities;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+
 public class Funcionario {
 
     // Atributos privados e protegidos da classe Funcionario
@@ -8,7 +12,7 @@ public class Funcionario {
     protected String email;
     protected double salario;
     protected String cpf;
-    protected int mesesTrabalho;
+    protected LocalDate dataContratado;
 
     static int proximoId; // Contador estático para gerar IDs únicos para os funcionários
 
@@ -20,20 +24,21 @@ public class Funcionario {
         this.email = email;
         this.salario = salario;
         this.cpf = cpf;
+        this.dataContratado = LocalDate.now();
     }
 
 
     // Métodos getter e setter para acessar e modificar os atributos do funcionário
 
 
-    public Funcionario(String nome, String email, double salario, String cpf, int mesesTrabalho) {
+    public Funcionario(String nome, String email, double salario, String cpf, LocalDate dataContratado) {
         this.id = proximoId;
         proximoId++;
         this.nome = nome;
         this.email = email;
         this.salario = salario;
         this.cpf = cpf;
-        this.mesesTrabalho = mesesTrabalho;
+        this.dataContratado = dataContratado;
     }
 
 
@@ -59,9 +64,24 @@ public class Funcionario {
 
     public void setSalario(double salario) {this.salario = salario;}
 
-    public int getMesesTrabalho() {return this.mesesTrabalho;}
+    public int getMesesTrabalho() {
+        return (int) ChronoUnit.MONTHS.between(this.dataContratado, LocalDate.now());
+    }
 
-    public void setMesesTrabalho(int mesesTrabalho) {this.mesesTrabalho = mesesTrabalho;}
+    public void setDataContratado(String dataContratado) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yy");
+        this.dataContratado = LocalDate.parse(dataContratado, formatter);
+    }
+
+    public void setDataContratado(int mesesTrabalho) {
+        this.dataContratado = LocalDate.now().minusMonths(mesesTrabalho);
+    }
+
+
+    public String getDataContratado() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yy");
+        return this.dataContratado.format(formatter);
+    }
 
     // Método toString que retorna uma string formatada com o nome, email e CPF do funcionário
     public String toString(int numero) {
@@ -73,12 +93,14 @@ public class Funcionario {
     // Método toString que retorna uma string formatada com todos os atributos do funcionário
     @Override
     public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yy");
         return String.format("\nID: %d"
                 + "\nNome: %s"
                 + "\nemail: %s"
                 + "\nsalario: %.2f"
                 + "\nCPF: %s"
-                + "\nMeses Trabalhado: %d", this.id, this.nome, this.email, this.salario, this.cpf, this.mesesTrabalho);
+                + "\nMeses Trabalhado: %d"
+                + "\nData contratado: %s", this.id, this.nome, this.email, this.salario, this.cpf, getMesesTrabalho(), this.dataContratado.format(formatter));
     }
 
 }

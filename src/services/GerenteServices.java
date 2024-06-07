@@ -3,6 +3,8 @@ package services;
 import collections.GerenteDB;
 import entities.Gerente;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class GerenteServices {
@@ -18,7 +20,6 @@ public class GerenteServices {
 
         Scanner input = new Scanner(System.in); // Cria um scanner para ler a entrada do usuário
 
-
         GerenteDB gerenteDB = GerenteDB.getInstance(); // Obtém a instância do banco de dados de gerentes
         // Exibe o cabeçalho do cadastro de gerente
         System.out.println("===========================");
@@ -33,22 +34,25 @@ public class GerenteServices {
         String email = input.nextLine();
 
         System.out.println("Digite o salario do gerente");
-        double salario = input.nextDouble(); // Consome a linha pendente
+        double salario = Double.parseDouble(input.nextLine()); // Consome a linha pendente
 
         System.out.println("Digite o CPF do gerente");
         String cpf = input.nextLine();
 
         System.out.println("Digite o bonus do gerente");
-        double bonus = input.nextDouble(); // Consome a linha pendente
-
-        System.out.println("Digite o departamento do gerente");
-        String departamento = input.nextLine();
+        double bonus = Double.parseDouble(input.nextLine()); // Consome a linha pendente
 
         System.out.println("Digite os meses de experiência gerencial do gerente");
-        int mesesExperienciaGerencial = input.nextInt();
+        int mesesExperienciaGerencial = Integer.parseInt(input.nextLine());
+
+        System.out.println("Digite a data de contratação (dd/mm/yyyy)");
+        String dataContratado = input.nextLine();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate dataContratadoLocalDate = null;
+        dataContratadoLocalDate = LocalDate.parse(dataContratado, formatter);
 
         // Adiciona o novo gerente ao banco de dados
-        gerenteDB.add(new Gerente(nome, email, salario, cpf, bonus, departamento, mesesExperienciaGerencial));
+        gerenteDB.add(new Gerente(nome, email, salario, cpf, bonus, mesesExperienciaGerencial, dataContratadoLocalDate));
     }
 
     // Método para mostrar todos os gerentes cadastrados
@@ -81,7 +85,8 @@ public class GerenteServices {
 
             if (gerente.getCPF().equals(cpfProcura)){
                 System.out.println("GERENTE ENCONTRADO!");
-                input.nextLine();// Consome a linha pendente
+                input.nextLine(); // Adicionado para consumir o delimitador(Estava pulando o primeiro input do
+                // nome)
 
                 // Solicita e atualiza os dados do gerente
                 System.out.printf("\nDigite o nome caso queira alterar (atual: %s) ", gerente.getNome());
@@ -104,21 +109,15 @@ public class GerenteServices {
                 if (!cpf.isEmpty())
                     gerente.setCPF(cpf);
 
-                System.out.printf("\nDigite o bonus caso queira alterar (atual: %.2f) ", gerente.getBonus());
-                double bonus = Double.parseDouble(input.nextLine());
-                if (bonus != 0.0 &&  bonus > 0)
-                    gerente.setBonus(bonus);
-
-                System.out.printf("\nDigite o departamento caso queira alterar (atual: %s) ", gerente.getDepartamento());
-                String departamento = input.nextLine();
-                if (!departamento.isEmpty())
-                    gerente.setDepartamento(departamento);
+                System.out.printf("\nDigite o tempo de trabalho caso queira alterar (atual: %d) ", gerente.getMesesTrabalho());
+                int mesesTrabalho = Integer.parseInt(input.nextLine());
+                if (mesesTrabalho > 0)
+                    gerente.setDataContratado(mesesTrabalho);
 
                 System.out.printf("\nDigite os meses de experiência gerencial caso queira alterar (atual: %d) ", gerente.getMesesExperienciaGerencial());
                 int mesesExperienciaGerencial = Integer.parseInt(input.nextLine());
-                if (mesesExperienciaGerencial != 0 &&  mesesExperienciaGerencial > 0)
+                if (mesesExperienciaGerencial > 0)
                     gerente.setMesesExperienciaGerencial(mesesExperienciaGerencial);
-
             }
         }
     }

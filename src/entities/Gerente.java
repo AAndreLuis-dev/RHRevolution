@@ -1,22 +1,22 @@
 package entities;
 
+import java.time.LocalDate;
+
 public class Gerente extends Funcionario {
 
     // Atributos privados da classe Gerente
     private double bonus; // Bônus do gerente
-    private String departamento; // Departamento do gerente
+    private Departamento gerenteDepartamento; // Departamento do gerente
     private int mesesExperienciaGerencial; // Meses de experiência gerencial do gerente
 
     // Construtor que inicializa um Gerente com nome, email, salário, CPF, bônus, departamento e meses de experiência gerencial
-    public Gerente(String nome, String email, double salario, String cpf, double bonus, String departamento, int mesesExperienciaGerencial) {
-        super(nome, email, salario, cpf);
+    public Gerente(String nome, String email, double salario, String cpf, double bonus, int mesesExperienciaGerencial, LocalDate dataContratado) {
+        super(nome, email, salario, cpf, dataContratado);
         this.bonus = bonus;
-        this.departamento = departamento;
         this.mesesExperienciaGerencial = mesesExperienciaGerencial;
     }
 
     // Sobrescrita do método toString para incluir os atributos específicos de Gerente
-
 
     public double getBonus() {
         return this.bonus;
@@ -27,11 +27,7 @@ public class Gerente extends Funcionario {
     }
 
     public String getDepartamento() {
-        return this.departamento;
-    }
-
-    public void setDepartamento(String departamento) {
-        this.departamento = departamento;
+        return this.gerenteDepartamento.getNomeDepartamento();
     }
 
     public int getMesesExperienciaGerencial() { return this.mesesExperienciaGerencial;}
@@ -47,7 +43,7 @@ public class Gerente extends Funcionario {
     @Override
     public String toString() {
         return super.toString() + String.format("\nBonus: %.2f"
-                + "\nDepartamento: %s"
-                + "\nSalario total: %.2f", this.bonus, this.departamento, getSalarioComBonus());
+                + "\nSalario total: %.2f"
+                + "\nMeses de experiência gerencial: %d", this.bonus, getSalarioComBonus(), this.mesesExperienciaGerencial);
     }
 }
