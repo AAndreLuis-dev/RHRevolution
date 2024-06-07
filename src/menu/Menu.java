@@ -1,6 +1,7 @@
 package menu;
 
 import entities.Funcionario;
+import services.DepartamentoServices;
 import services.FolhaServices;
 import services.FuncionarioServices;
 import services.GerenteServices;
@@ -22,8 +23,9 @@ public class Menu {
         // Exibe as opções do menu
         System.out.println("[1] - ARÉA DE FUNCIONÁRIOS");
         System.out.println("[2] - ARÉA DE GERENTE");
-        System.out.println("[3] - FOLHA DE PAGAMENTO");
-        System.out.println("[4] - SAIR");
+        System.out.println("[3] - ARÉA  DE DEPARTAMENTO");
+        System.out.println("[4] - FOLHA DE PAGAMENTO");
+        System.out.println("[5] - SAIR");
         System.out.print("Escolha uma opção: ");
 
         choice = input.nextInt(); // Lê a escolha do usuário
@@ -37,8 +39,11 @@ public class Menu {
                 menuGerente(); // Chama o menu de gerentes
                 break;
             case 3:
-                menuFolha();
+                menuDepartamento();
+                break;
             case 4:
+                menuFolha();
+            case 5:
                 System.out.println("Programa finalizado");
                 break;
             default:
@@ -147,13 +152,35 @@ public class Menu {
         System.out.println("=====================================");
         System.out.println("            RH REVOLUTION             ");
         System.out.println("=====================================");
-        System.out.println("[1] - LISTAR DEPARTAMENTO");
-        System.out.println("[2] - ADICIONAR FUNCIONARIOS NO DEPARTAMENTO");
-        System.out.println("[2] - REMOVER DEPARTAMENTO");
-        System.out.println("[4] - SAIR");
+        System.out.println("[1] - CADASTRAR DEPARTAMENTO");
+        System.out.println("[2] - LISTAR DEPARTAMENTO");
+        System.out.println("[3] - ADICIONAR FUNCIONARIOS NO DEPARTAMENTO");
+        System.out.println("[4] - REMOVER DEPARTAMENTO");
+        System.out.println("[5] - SAIR");
         System.out.print("Escolha uma opção: ");
         choice = input.nextInt();
 
+        switch (choice) {
+            case 1:
+                DepartamentoServices.cadastrarDepartamento();
+                break;
+            case 2:
+                DepartamentoServices.listarDepartamentos();
+                break;
+            case 3:
+                DepartamentoServices.cadastrarFuncionario();
+                break;
+            case 4:
+                DepartamentoServices.apagarDepartamento();
+                break;
+            case 5:
+                menuGeral();
+                break;
+            default:
+                System.out.println("Opcao invalida");
+        }
+
+        menuDepartamento();
 
     }
 

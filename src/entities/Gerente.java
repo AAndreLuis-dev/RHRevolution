@@ -6,7 +6,7 @@ public class Gerente extends Funcionario {
 
     // Atributos privados da classe Gerente
     private double bonus; // Bônus do gerente
-    private Departamento gerenteDepartamento; // Departamento do gerente
+    private String departamentoLidera; // Departamento do gerente
     private int mesesExperienciaGerencial; // Meses de experiência gerencial do gerente
 
     // Construtor que inicializa um Gerente com nome, email, salário, CPF, bônus, departamento e meses de experiência gerencial
@@ -27,8 +27,10 @@ public class Gerente extends Funcionario {
     }
 
     public String getDepartamento() {
-        return this.gerenteDepartamento.getNomeDepartamento();
+        return this.departamentoLidera;
     }
+
+    public void setDepartamento(String departamento) {this.departamentoLidera = departamento;}
 
     public int getMesesExperienciaGerencial() { return this.mesesExperienciaGerencial;}
 
@@ -44,6 +46,7 @@ public class Gerente extends Funcionario {
     public String toString() {
         return super.toString() + String.format("\nBonus: %.2f"
                 + "\nSalario total: %.2f"
-                + "\nMeses de experiência gerencial: %d", this.bonus, getSalarioComBonus(), this.mesesExperienciaGerencial);
+                + "\nMeses de experiência gerencial: %d" +
+                "\nLider do departamento: %s", this.bonus, getSalarioComBonus(), this.mesesExperienciaGerencial, this.getDepartamento());
     }
 }

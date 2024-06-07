@@ -2,6 +2,7 @@ import collections.FuncionarioDB;
 import entities.Funcionario;
 import entities.Gerente;
 import menu.Menu;
+import services.DepartamentoServices;
 import services.FuncionarioServices;
 import services.GerenteServices;
 
@@ -24,6 +25,15 @@ public class Programa {
         //Cadastro gerente
         GerenteServices.cadastroGerente(new Gerente("Andre", "aandreluis.a.a@gmail.com", 16000, "4000289-22", 20, 42, dataBase));
         GerenteServices.cadastroGerente(new Gerente("ARTUR HENRIQUE KRONBAUER", "arturKronbauer@gmail.com", 10000, "85422024-06", 10, 82, dataBase));
+
+        //Cadastro Departamento
+        DepartamentoServices.cadastrarDepartamento("TI", "85422024-06");
+        DepartamentoServices.cadastrarDepartamento("Geral", "4000289-22");
+
+        //Cadastro funcionario no departamento
+        DepartamentoServices.cadastrarFuncionario("TI", "75772343-65" );
+        DepartamentoServices.cadastrarFuncionario("TI", "85123051-13" );
+        DepartamentoServices.cadastrarFuncionario("Geral", "123123-23");
 
 
         System.out.println("\n" +
