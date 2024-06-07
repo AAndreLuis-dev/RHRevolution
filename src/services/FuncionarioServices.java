@@ -39,10 +39,7 @@ public class FuncionarioServices {
         double salario = Double.parseDouble(input.nextLine()); // Consome a linha pendente
 
         System.out.println("Digite o CPF do funcionario");
-        String cpf = input.next();
-
-        System.out.println("Digite o tempo de trabalho em meses");
-        int mesesTrabalho = input.nextInt();
+        String cpf = input.nextLine();
 
         System.out.println("Digite a data de contratação (dd/mm/yy)");
         String dataContratado = input.nextLine();

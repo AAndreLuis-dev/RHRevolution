@@ -16,7 +16,7 @@ public class Programa {
         //Cadastro previo funcionario
 
         LocalDate dataBase = LocalDate.of(1992, 1, 1);
-        FuncionarioServices.cadastroUsuario(new Funcionario("Rodson", "Rodzinho@gmail.com", 800, "123123-23", dataBase));
+        FuncionarioServices.cadastroUsuario(new Funcionario("Rodson", "Rodzinho@gmail.com", 1600, "123123-23", dataBase));
         FuncionarioServices.cadastroUsuario(new Funcionario("Lou", "clarinha@gmail.com", 750, "90312344-21", dataBase));
         FuncionarioServices.cadastroUsuario(new Funcionario("Gabriel", "gaybrielhackerzin@gmail.com", 1300, "7233573-67", dataBase));
         FuncionarioServices.cadastroUsuario(new Funcionario("Catarina", "catcatgoth@gmail.com", 750, "85123051-13", dataBase));

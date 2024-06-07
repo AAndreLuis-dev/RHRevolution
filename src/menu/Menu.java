@@ -50,6 +50,7 @@ public class Menu {
                 System.out.println("Opção inválida");
                 menuGeral(); // Retorna ao menu geral
         }
+
     }
 
     // Método estático para exibir o menu de funcionários
@@ -198,7 +199,8 @@ public class Menu {
         System.out.println("[2] - FOLHA DE GERENTE");
         System.out.println("[3] - FOLHA DE DEPARTAMENTO");
         System.out.println("[4] - DAR BONUS");
-        System.out.println("[5] - SAIR");
+        System.out.println("[5] - ORDENAR FUNCIONARIOS POR SALARIO");
+        System.out.println("[6] - SAIR");
         System.out.print("Escolha uma opção: ");
         choice = input.nextInt(); // Lê a escolha do usuário
 
@@ -217,6 +219,9 @@ public class Menu {
                 FolhaServices.setBonusDepartamento();
                 break;
             case 5:
+                FolhaServices.ordenarFuncionarios();
+                break;
+            case 6:
                 menuGeral();
             default:
                 System.out.println("Opcao invalida");

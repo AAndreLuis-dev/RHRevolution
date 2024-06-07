@@ -100,9 +100,12 @@ public class GerenteServices {
                     gerente.setEmail(email);
 
                 System.out.printf("\nDigite o salario caso queira alterar (atual: %.2f) ", gerente.getSalario());
-                double salario = Double.parseDouble(input.nextLine());
-                if (salario != 0.0 &&  salario > 0)
-                    gerente.setSalario(salario);
+                String entrada = input.nextLine();
+                if (!entrada.isEmpty()) {
+                    double salario = Double.parseDouble(entrada);
+                    if (salario != 0.0 && salario > 0)
+                        gerente.setSalario(salario);
+                }
 
                 System.out.printf("\nDigite o cpf caso queira alterar (atual: %s) ", gerente.getCPF());
                 String cpf = input.nextLine();
@@ -110,14 +113,21 @@ public class GerenteServices {
                     gerente.setCPF(cpf);
 
                 System.out.printf("\nDigite o tempo de trabalho caso queira alterar (atual: %d) ", gerente.getMesesTrabalho());
-                int mesesTrabalho = Integer.parseInt(input.nextLine());
-                if (mesesTrabalho > 0)
-                    gerente.setDataContratado(mesesTrabalho);
+                String line = input.nextLine();
+                if (!line.isEmpty()) {
+                    int mesesTrabalho = Integer.parseInt(line);
+                    if (mesesTrabalho > 0)
+                        gerente.setDataContratado(mesesTrabalho);
+                }
 
                 System.out.printf("\nDigite os meses de experiência gerencial caso queira alterar (atual: %d) ", gerente.getMesesExperienciaGerencial());
-                int mesesExperienciaGerencial = Integer.parseInt(input.nextLine());
-                if (mesesExperienciaGerencial > 0)
-                    gerente.setMesesExperienciaGerencial(mesesExperienciaGerencial);
+                String meses = input.nextLine();
+                if (!meses.isEmpty()) {
+                    int mesesExperienciaGerencial = Integer.parseInt(meses);
+                    if (mesesExperienciaGerencial > 0)
+                        gerente.setMesesExperienciaGerencial(mesesExperienciaGerencial);
+
+                }
             }
         }
     }
