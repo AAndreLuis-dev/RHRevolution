@@ -83,7 +83,7 @@ Contribuições em forma de código são altamente apreciadas! Aqui está um gui
 Sinta-se à vontade para sugerir melhorias.
 
 ## Contato
-André Luis - andreluis@gmail.com
+André Luis - aandreluis.a.a@gmail.com
 
-Link do Projeto: https://github.com/AAndreLuis-dev/RHRevolution/tree/master
+Link do Projeto: https://github.com/AAndreLuis-dev/RHRevolution
 
